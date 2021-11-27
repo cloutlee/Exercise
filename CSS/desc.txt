@@ -1,0 +1,13 @@
+css會區分英文大小寫但html不會
+
+css註解為/* ... */
+
+使用css方式
+內部
+在<head>標籤裡加入<style></style>標籤
+或在元素裡使用style屬性
+<body style="...">
+
+外部
+在<head>標籤裡加上<link rel="stylesheet" type="text/css" href="xxx.css">
+或在標籤<style>裡輸入@import url("xxx.css");
