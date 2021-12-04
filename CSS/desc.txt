@@ -11,3 +11,73 @@ css註解為/* ... */
 外部
 在<head>標籤裡加上<link rel="stylesheet" type="text/css" href="xxx.css">
 或在標籤<style>裡輸入@import url("xxx.css");
+
+
+css選擇器
+
+類型選擇器 ─ 選擇指定的html元素
+p{color:blue;}
+
+ID選擇器 ─ 選擇符合指定id的html元素
+#aaa{color:blue;}
+
+<p id="aaa">...
+
+類別選擇器 ─ 選擇屬於指定類別的html元素
+.abc{color:blue;}
+
+<p class="abc">...
+
+子選擇器 ─ 選擇子元素
+ul > li{color:blue;}
+
+子孫選擇器 ─ 選擇子孫元素
+p a {colro:blue;}
+
+相鄰兄弟選擇器 ─ 選擇後面的第一個兄弟節點
+img + p{colro:blue;}
+
+全體兄弟選擇器 ─ 選擇所有兄弟元素
+img ~ p{colro:blue;}
+
+屬性選擇器 ─ 選擇指定屬性值的html元素
+[class="blue"]{colro:blue;} 選擇class屬性值為blue的元素
+[class~="blue"]{colro:blue;} 選擇class屬性值為blue或以空白隔開並包含blue的元素
+[class|="blue"]{colro:blue;} 選擇class屬性值為blue或blue開頭的元素
+[class^="blue"]{colro:blue;} 選擇class屬性值開頭為blue的元素
+[class$="blue"]{colro:blue;} 選擇class屬性值為blue結尾的元素
+[class*="blue"]{colro:blue;} 選擇class屬性值包含blue的元素
+
+<p class="xxbluexx">
+
+
+虛擬元素
+p::first-line{colro:blue;}	元素的第一行
+::first-letter				元素的第一個字
+::before					元素前的內容		要加content:'' 沒值也要加
+::after						元素後的內容		要加content:'' 沒值也要加
+::selection					元素被選取的部分
+
+
+虛擬類別
+:hover
+:focus
+:active	點選的元素
+:first-child 第一個子元素
+:last-child 最後一個子元素
+:link 尚未瀏覽的超連結
+:visited 已瀏覽的超連結
+:enabled 表單中啟用的欄位
+:disabled 表單中取消的欄位
+:checked 表單中選取的選擇鈕
+
+
+優先順序
+!important 提高順序
+p{colro:blue !important;}
+
+子元素繼承父元素的屬性值
+p{border:inherit;}
+
+
+
