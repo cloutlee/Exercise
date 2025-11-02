@@ -34,3 +34,21 @@ arr = np.array(tmplist)
 # print(arr_2d[range(3), range(3)])   #[1 5 9] 取對角線元素
 # print(arr_2d[:, 0])     #[1 4 7] 取第一欄
 
+# print(np.sum(arr))          #求和
+# print(np.mean(arr))         #平均值
+# print(np.std(arr))          #標準差
+# print(np.var(arr))          #變異數
+# print(np.min(arr))          #最小值
+# print(np.max(arr))          #最大值
+# print(np.exp(arr))          #指數
+# print(np.sqrt(arr))         #平方根
+# print(np.log(arr))          #自然對數
+# print(np.sin(arr))          #正弦值
+# print(np.cos(arr))          #餘弦值
+# print(np.tan(arr))          #正切值
+
+# print(np.sort(arr))           #排序
+# print(np.argmax(arr))         #最大值索引
+# print(np.argmin(arr))         #最小值索引
+
+
