@@ -19,6 +19,8 @@ arr = np.array(tmplist)
 # print(arr[-2])      #9
 # print(arr[-3:])     #[8, 9, 10]
 # print(arr[:-3])     #[1, 2, 3, 4, 5, 6, 7]
+# print(arr[(arr >= 3) & (arr < 9)])    #[3 4 5 6 7 8]
+# print(arr[arr % 2 == 0])              #[ 2  4  6  8 10]
 
 # print(np.zeros(3))          #[0. 0. 0.]
 # print(np.zeros((2,3)))      #[[0. 0. 0.]
@@ -26,6 +28,7 @@ arr = np.array(tmplist)
 # print(np.ones(3))           #[1. 1. 1.]
 # print(np.arange(1, 10, 2))  #[1 3 5 7 9]建立等差數列(start, end, step)
 # print(np.linspace(0, 1, 5)) #[0.   0.25 0.5  0.75 1. ]建立等差數列(start, end, number of elements)
+# print(np.random.random(3))  #建立3個0~1之間的隨機數
 
 # arr_2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 # arr_3d = np.array([[[1, 2, 3], [4, 5, 6]], [[7, 8, 9], [10, 11, 12]]])
@@ -50,5 +53,10 @@ arr = np.array(tmplist)
 # print(np.sort(arr))           #排序
 # print(np.argmax(arr))         #最大值索引
 # print(np.argmin(arr))         #最小值索引
+
+# newarr = arr.reshape(2, 5)
+# print(newarr)
+# print(newarr.T)
+# print(newarr.flatten())
 
 
