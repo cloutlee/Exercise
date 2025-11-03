@@ -7,12 +7,13 @@ import matplotlib.image as img
 
 # -----------matplotlib讀圖、顯示圖片-----------
 
-# image = plt.imread('C:\\Users\\clout\\Desktop\\hub\\Exercise\\Python\\11.png')
-# # image = img.imread('C:\\Users\\clout\\Desktop\\hub\\Exercise\\Python\\11.png')
-# print(image.shape)  #(高度, 寬度, 通道數) RGB
-# print(type(image))  #<class 'numpy.ndarray'>
-# plt.imshow(image)
-# plt.show()
+image = plt.imread('C:\\Users\\clout\\Desktop\\hub\\Exercise\\Python\\11.png')
+# image = img.imread('C:\\Users\\clout\\Desktop\\hub\\Exercise\\Python\\11.png')
+print(image.shape)  #(高度, 寬度, 通道數) RGB
+print(type(image))  #<class 'numpy.ndarray'>
+plt.axis('off')
+plt.imshow(image)
+plt.show()
 
 
 
@@ -45,8 +46,8 @@ import matplotlib.image as img
 
 
 
-ima = np.random.random((5, 5))
-plt.imshow(ima, cmap='gray')
-plt.show()
+# ima = np.random.random((5, 5))
+# plt.imshow(ima, cmap='gray')
+# plt.show()
 
 
