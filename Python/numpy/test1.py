@@ -51,12 +51,43 @@ arr = np.array(tmplist)
 # print(np.tan(arr))          #正切值
 
 # print(np.sort(arr))           #排序
-# print(np.argmax(arr))         #最大值索引
-# print(np.argmin(arr))         #最小值索引
+# print(np.argmax(arr))         #最大值的第一個索引值
+# print(np.argmin(arr))         #最小值的第一個索引值
 
 # newarr = arr.reshape(2, 5)
 # print(newarr)
 # print(newarr.T)
 # print(newarr.flatten())
+
+
+
+mask = np.array([
+    [0, 0, 1, -1, 0],
+    [0, 1, -1, 1, 0],
+    [0, 0, 0, 1, 0],
+    [2, 2, 0, 0, 0],
+    [2, 2, 2, 0, 0]
+])
+
+# print(mask > 0)                 #布林值陣列
+# print((mask > 0).astype(int))   #轉換為整數陣列
+
+# y_range, x_range = np.nonzero(mask)
+# print(y_range)
+# print(x_range)
+# #座標,上下一起看
+
+
+# arr_1d = np.array([1, 2, 3])
+# result = np.repeat(arr_1d, 3)
+# print(result)
+# arr_2d = np.array([[1, 2], [3, 4]])
+# result_none = np.repeat(arr_2d, 2)
+# result_axis0 = np.repeat(arr_2d, 2, axis=0)
+# result_axis1 = np.repeat(arr_2d, 2, axis=1)
+# print(result_none)
+# print(result_axis0)
+# print(result_axis1)
+
 
 
