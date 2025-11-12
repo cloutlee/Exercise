@@ -91,3 +91,10 @@ mask = np.array([
 
 
 
+# arr = np.array([1, 3, 5, 5, 2, 5, 1, 5])
+# ma = np.argmax(arr)
+# print(ma)                                           # 只回傳第一個最大值的索引值
+# all_max_indices = np.where(arr == np.max(arr))[0]   # 傳回所有最大值索引
+# print(all_max_indices)
+# filtered_indices = all_max_indices[all_max_indices > 4]     # 篩選限制部分索引值
+# print(filtered_indices)

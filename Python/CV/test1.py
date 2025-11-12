@@ -45,10 +45,90 @@ import matplotlib.image as img
 
 
 
+# -----------numpy 三維-----------
+
+# img = np.zeros((2, 2, 3))
+# print(img.shape)
+# print(img.ndim)
+# img[0, :, :] = 1
+# print(img)
+# print('---------------------')
+# img = np.zeros((2, 2, 3))
+# img[:, 0, :] = 1
+# print(img)
+# print('---------------------')
+# img = np.zeros((2, 2, 3))
+# img[:, :, 0] = 1
+# print(img)
+
+
+
+# -----------建立10*10全紅圖片-----------
+
+# width = 10
+# height = 10
+# image_array = np.zeros((height, width, 3), dtype=np.uint8)
+# # 將所有像素的G(綠色) 通道設定為255(最大亮度)
+# # image_array[:, :, 0] 表示紅色通道
+# # image_array[:, :, 1] 表示綠色通道
+# # image_array[:, :, 2] 表示綠色通道
+# image_array[:, :, 0] = 255  #所有行(height)所有列(width)的第0個通道設為255
+# plt.imshow(image_array)
+# plt.axis('off')
+# plt.show()
+# print(image_array)
+
+# --------
+
+# red_array = np.full((10, 10, 3), (255, 0, 0), dtype=np.uint8)
+# plt.imshow(red_array)
+# plt.axis('off')
+# plt.show()
+
+# --------
+
+# width, height = 10, 10
+# red = Image.new('RGB', (width, height), (255, 0, 0))
+# red.show()
+
+
+
+# -----------建立10*10紅綠藍圖片-----------
+
+# img = np.zeros((10, 10, 3), dtype=np.uint8)
+# img[:, 0:3, 0] = 255
+# img[:, 3:7, 1] = 255
+# img[:, 7:10, 2] = 255
+# plt.imshow(img)
+# plt.axis('off')
+# plt.show()
+# print(img)
+
+
+# -----------隨機灰階圖片-----------
 
 # ima = np.random.random((5, 5))
+# plt.axis('off')
 # plt.imshow(ima, cmap='gray')
 # plt.show()
+
+
+# -----------畫一條直線-----------
+
+# img_array = np.zeros((10, 10, 3), dtype=np.uint8)
+
+# # 在中間列（第5列，index為4）設置綠色線，綠色在RGB是(0,255,0)
+# img_array[:, 5, 1] = 255  # 在所有行，列索引4，綠色通道1設定255
+
+# # 轉換成圖片物件
+# img = Image.fromarray(img_array)
+# # img.save("green_line.png")
+# img.show()
+
+
+
+
+
 
 
 # img = img.imread('C:\\Users\\clout\\Desktop\\hub\\Exercise\\Python\\1.png')
@@ -202,14 +282,3 @@ import matplotlib.image as img
 
 
 
-img_array = np.zeros((10, 10, 3), dtype=np.uint8)
-
-# 在中間列（第5列，index為4）設置綠色線，綠色在RGB是(0,255,0)
-img_array[:, 5, 1] = 255  # 在所有行，列索引4，綠色通道設定255
-
-# 轉換成圖片物件
-img = Image.fromarray(img_array)
-
-# # 儲存圖片
-# img.save("green_line.png")
-img.show()
