@@ -43,6 +43,7 @@ arr = np.array(tmplist)
 # print(np.var(arr))          #變異數
 # print(np.min(arr))          #最小值
 # print(np.max(arr))          #最大值
+# print(np.median(arr))       #中位數
 # print(np.exp(arr))          #指數
 # print(np.sqrt(arr))         #平方根
 # print(np.log(arr))          #自然對數
@@ -98,3 +99,12 @@ mask = np.array([
 # print(all_max_indices)
 # filtered_indices = all_max_indices[all_max_indices > 4]     # 篩選限制部分索引值
 # print(filtered_indices)
+
+
+# 矩陣乘法
+# A = np.array([[1, 2], [3, 4]])
+# B = np.array([[5, 6], [7, 8]])
+# print(np.matmul(A, B))
+# print(np.dot(A, B))
+# print(A @ B)
+
