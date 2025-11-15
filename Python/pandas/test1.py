@@ -26,10 +26,10 @@ s3 = pd.Series(data3)
 
 # -----------DataFrame-----------
 
-data = {'Name': ['Tom', 'Nick', 'Krish', 'Jack'],
-        'Age': [20, 21, 19, 18],
+data4 = {'Name': ['Tom', 'Nick', None, 'Jack'],
+        'Age': [20, 21, 19, None],
         'City': ['NY', 'LA', 'Chicago', 'Houston']}
-df = pd.DataFrame(data)
+df1 = pd.DataFrame(data4)
 # print(df)
 # print(df.head(2))
 # print(df['Name'])
@@ -38,6 +38,31 @@ df = pd.DataFrame(data)
 # print(df.describe())
 # print(df['Age'].mean())
 # print(df.sort_values(by='Age'))
+# print(df.dropna())  # 刪除有缺失值的列
+# print(df.fillna({'Name': '???', 'Age': df['Age'].mean()}))  # 填補缺失值
+
+data5 = {'A': [1, 2, 3],
+         'B': [4, 5, 6]}
+
+data6 = {'A': [1, 8, 9],
+         'B': [10, 11, 12]}
+
+df2 = pd.DataFrame(data5)
+df3 = pd.DataFrame(data6)
+# print(pd.concat([df2, df3], ignore_index=True)) # 合併兩個DataFrame
+
+df4 = pd.DataFrame(data5, index=['row1', 'row2', 'row3'])
+# print(df4.loc['row1'])
+# print(df4.loc[:, 'A'])
+# print(df4.iloc[0])
+# print(df4.iloc[:, 0])
+# print(df4.at['row1', 'A'])
+# print(df4.iat[0, 0])
+# print(df4.query('A > 1'))
+# print(df4.where(df4 > 4))
+
+
+
 
 d1 = pd.read_csv('C:\\Users\\clout\\Desktop\\creditcard\\creditcard.csv')
 # print(d1.head())      #顯示前5筆
