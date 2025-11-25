@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <title>AAA</title>
+            <script src="qrc:///qtwebchannel/qwebchannel.js"></script>
+            <script src="https://d3js.org/d3.v7.min.js"></script>
+            <style>
+                body { 
+                    font-family: 'Microsoft JhengHei', Arial, sans-serif; 
+                    margin: 20px; 
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    min-height: 100vh;
+                }
+                .container { 
+                    max-width: 1200px; 
+                    margin: 0 auto; 
+                    background: white;
+                    border-radius: 15px;
+                    padding: 30px;
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+                }
+                .header { 
+                    text-align: center; 
+                    margin-bottom: 30px;
+                }
+                .header h1 { 
+                    color: #2c3e50; 
+                    margin-bottom: 10px;
+                    font-size: 28px;
+                }
+                .header p { 
+                    color: #7f8c8d; 
+                    font-size: 18px;
+                }
+                
+                .input-section {
+                    background: #f8f9fa;
+                    padding: 30px;
+                    border-radius: 10px;
+                    margin-bottom: 30px;
+                }
+                
+                .input-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                    gap: 20px;
+                    margin-bottom: 25px;
+                }
+                
+                .input-field {
+                    display: flex;
+                    flex-direction: column;
+                }
+                
+                label {
+                    display: block;
+                    margin-bottom: 8px;
+                    font-weight: bold;
+                    color: #2c3e50;
+                    font-size: 16px;
+                    text-align: left;
+                    padding: 5px 0;
+                }
+                
+                input {
+                    width: 90%;
+                    padding: 12px;
+                    border: 2px solid #ddd;
+                    border-radius: 8px;
+                    font-size: 16px;
+                    transition: border-color 0.3s;
+                    background-color: #ffffff;
+                }
+                
+                input:focus {
+                    outline: none;
+                    border-color: #3498db;
+                    box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+                }
+                
+                button {
+                    background: linear-gradient(45deg, #3498db, #2980b9);
+                    color: white;
+                    padding: 15px 30px;
+                    border: none;
+                    border-radius: 10px;
+                    font-size: 18px;
+                    font-weight: bold;
+                    cursor: pointer;
+                    transition: transform 0.2s, background 0.3s;
+                    margin: 15px 0;
+                    width: 200px;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+                
+                button:hover {
+                    transform: translateY(-3px);
+                    background: linear-gradient(45deg, #2980b9, #2573a7);
+                }
+                
+                .result-section {
+                    display: none;
+                    margin-top: 30px;
+                    padding: 30px;
+                    background: #f8f9fa;
+                    border-radius: 10px;
+                    border: 2px solid #e0e0e0;
+                }
+                
+                .chart-container {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 30px 0;
+                    min-height: 350px;
+                }
+                
+                .risk-info {
+                    text-align: center;
+                    margin: 20px 0;
+                }
+                
+                .risk-level {
+                    font-size: 28px;
+                    font-weight: bold;
+                    margin: 15px 0;
+                    padding: 15px;
+                    border-radius: 10px;
+                }
+                
+                .low-risk { background: #d4edda; color: #155724; }
+                .medium-risk { background: #fff3cd; color: #856404; }
+                .high-risk { background: #f8d7da; color: #721c24; }
+                
+                .probability-display {
+                    text-align: center;
+                    font-size: 22px;
+                    font-weight: bold;
+                    margin: 20px 0;
+                }
+
+                @media (max-width: 1200px) {
+                    .input-grid {
+                        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                    }
+                    
+                    label {
+                        font-size: 15px;
+                    }
+                    
+                    input {
+                        font-size: 15px;
+                        padding: 10px;
+                    }
+                }
+                
+                @media (max-width: 800px) {
+                    .input-grid {
+                        grid-template-columns: repeat(2, 1fr);
+                    }
+                    
+                    label {
+                        font-size: 14px;
+                    }
+                    
+                    input {
+                        font-size: 14px;
+                        padding: 8px;
+                    }
+                    
+                    button {
+                        font-size: 16px;
+                        padding: 12px 24px;
+                    }
+                }
+
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <div class="header">
+                    <h1>AAA</h1>
+                    <p>BBB</p>
+                </div>
+                
+                <div class="input-section">
+                    <div class="input-grid">                        
+                        <div class="input-field">
+                            <label for="age">Age</label>
+                            <input type="number" id="age" value="50">
+                        </div>
+                        <div class="input-field">
+                            <label for="height">性別</label>
+                            <input type="number" id="height" value="1">
+                        </div>
+                        
+                    </div>
+                    <button onclick="predictRisk()">預測</button>
+                </div>
+                
+                <div class="result-section" id="resultSection">
+                    <div class="probability-display">
+                        <span>預測機率: </span>
+                        <span id="hypotensionProb" style="color: #e74c3c; font-size: 24px;">0%</span>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <div id="donut-chart"></div>
+                    </div>
+                    
+                    <div class="risk-info">
+                        <div class="risk-level" id="riskLevel">等級: 未計算</div>
+                    </div>                   
+                    
+                </div>
+            </div>
+
+            <script>
+                var bpBridge = null;
+                
+                document.addEventListener('DOMContentLoaded', function() {
+                    new QWebChannel(qt.webChannelTransport, function(channel) {
+                        bpBridge = channel.objects.bpBridge;
+                        
+                        bpBridge.result_signal.connect(function(resultJson) {
+                            const result = JSON.parse(resultJson);
+                            displayResults(result);
+                        });
+                    });
+                });
+                
+                function predictRisk() {
+                    const fields = [
+                        'age', 'height'
+                    ];
+                    
+                    const data = {};
+                    
+                    fields.forEach(field => {
+                        const value = document.getElementById(field).value;
+                        data[field] = value || '0';
+                    });
+                    
+                    // 顯示正在計算
+                    document.getElementById('resultSection').style.display = 'block';
+                    document.getElementById('hypotensionProb').textContent = '計算中...';
+                    
+                    bpBridge.predict_hypotension_risk(JSON.stringify(data));
+                }
+                
+                function displayResults(result) {
+                    if (result.error) {
+                        document.getElementById('hypotensionProb').textContent = '計算錯誤';
+                        document.getElementById('hypotensionProb').style.color = '#e74c3c';
+                        return;
+                    }
+                    
+                    // 顯示機率
+                    const hypotensionProb = result.hypotension_probability;
+                    document.getElementById('hypotensionProb').textContent = hypotensionProb + '%';
+                    
+                    // 設定顏色
+                    if (hypotensionProb < 20) {
+                        document.getElementById('hypotensionProb').style.color = '#27ae60';
+                    } else if (hypotensionProb < 50) {
+                        document.getElementById('hypotensionProb').style.color = '#f39c12';
+                    } else {
+                        document.getElementById('hypotensionProb').style.color = '#e74c3c';
+                    }
+                    
+                    // 顯示等級
+                    const riskLevel = document.getElementById('riskLevel');
+                    riskLevel.textContent = '等級: ' + result.risk_level;
+                    riskLevel.className = 'risk-level ' + 
+                        (hypotensionProb < 20 ? 'low-risk' : 
+                         hypotensionProb < 50 ? 'medium-risk' : 'high-risk');
+                    
+                    // 繪製甜甜圈圖
+                    drawMedicalDonutChart(hypotensionProb);
+                }
+                
+                function drawMedicalDonutChart(hypotensionProb) {
+                    // 清除之前的圖表
+                    d3.select("#donut-chart").selectAll("*").remove();
+                    
+                    const width = 400;
+                    const height = 400;
+                    const innerRadius = 100;   // 甜甜圈內圈半徑
+                    const outerRadius = 150;   // 甜甜圈外圈半徑
+                    
+                    const svg = d3.select("#donut-chart")
+                        .append("svg")
+                        .attr("width", width)
+                        .attr("height", height)
+                        .append("g")
+                        .attr("transform", `translate(${width/2},${height/2})`);
+                    
+                    // 定義數據
+                    const data = [
+                        {name: "風險", value: hypotensionProb, color: "#4ECDC4"},
+                        {name: "正常", value: 100 - hypotensionProb, color: "#f8f9fa"}
+                    ];
+                    
+                    // 餅圖生成器
+                    const pie = d3.pie()
+                        .value(d => d.value)
+                        .sort(null);
+                    
+                    // 弧形生成器
+                    const arc = d3.arc()
+                        .innerRadius(innerRadius)
+                        .outerRadius(outerRadius);
+                    
+                    // 添加背景圓環
+                    svg.append("circle")
+                        .attr("r", outerRadius + 5)
+                        .attr("fill", "none")
+                        .attr("stroke-width", 2);
+                    
+                    // 添加主甜甜圈
+                    const arcs = svg.selectAll(".arc")
+                        .data(pie(data))
+                        .enter()
+                        .append("g")
+                        .attr("class", "arc");
+                    
+                    arcs.append("path")
+                        .attr("d", arc)
+                        .attr("fill", d => d.data.color)
+                        .attr("stroke", "#4ECDC4")
+                        .attr("stroke-width", 1)
+                        .transition()
+                        .duration(800)
+                        .attrTween("d", function(d) {
+                            const interpolate = d3.interpolate({startAngle: 0, endAngle: 0}, d);
+                            return function(t) {
+                                return arc(interpolate(t));
+                            };
+                        });
+						
+						
+					svg.append("image")
+						.attr("href", "pic.png")
+						.attr("x", -50)
+                        .attr("y", -70)
+                        .attr("width", 100)
+                        .attr("height", 100)
+
+                    
+                    // 中心顯示機率
+                    svg.append("text")
+                        .attr("x", 0)
+                        .attr("y", 50)
+                        .attr("text-anchor", "middle")
+                        .style("font-size", "28px")
+                        .style("font-weight", "bold")
+                        .style("fill", "#9B59B6")
+                        .text(hypotensionProb + "%");
+                    
+                    // 添加底部文字
+                    svg.append("text")
+                        .attr("x", 0)
+                        .attr("y", 80)
+                        .attr("text-anchor", "middle")
+                        .style("font-size", "14px")
+                        .style("fill", "#7f8c8d")
+                        .text("機率");
+                }
+            </script>
+        </body>
+        </html>
