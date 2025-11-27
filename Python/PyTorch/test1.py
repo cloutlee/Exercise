@@ -1,0 +1,20 @@
+import torch.nn as nn
+import torch
+
+# a = torch.randn(5)
+# print(a)
+# re = nn.ReLU()
+# output = re(a)
+# print(output)
+
+# print(torch.zeros(5))
+# print(torch.ones(5))
+# print(torch.full((5,), 3.14))
+# print(torch.arange(0, 10, 2))
+# print(torch.linspace(0, 1, steps=5))
+# print(torch.eye(3))
+# print(torch.rand(3, 3))
+# print(torch.randn(3, 3))
+# print(torch.randint(0, 10, (3, 3)))
+# print(torch.empty(3, 3))
+# print(torch.tensor([1.0, 2.0, 3.0]))
