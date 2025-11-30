@@ -24,10 +24,11 @@ import torch
 
 
 
-bce_loss = nn.BCELoss()
-predictions = torch.tensor([0.8, 0.2, 0.9, 0.1])
-targets = torch.tensor([1.0, 0.0, 1.0, 0.0])
-loss = bce_loss(predictions, targets)
-print(f"BCELoss: {loss.item()}")
+# bce_loss = nn.BCELoss()
+# predictions = torch.tensor([0.8, 0.2, 0.9, 0.1])
+# targets = torch.tensor([1.0, 0.0, 1.0, 0.0])
+# loss = bce_loss(predictions, targets)
+# print(f"BCELoss: {loss.item()}")
+
 
 

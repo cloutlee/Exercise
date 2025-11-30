@@ -79,6 +79,7 @@ mask = np.array([
 # #座標,上下一起看
 
 
+
 # arr_1d = np.array([1, 2, 3])
 # result = np.repeat(arr_1d, 3)
 # print(result)
@@ -116,18 +117,22 @@ mask = np.array([
 
 
 # 計算序列中相鄰元素的差值，差分矩陣乘以一個向量，就會得到該向量的相鄰元素差的向量
-coordinates = np.array([1, 3, 6, 10])
+# coordinates = np.array([1, 3, 6, 10])
 
-# 差分矩陣 D，對於4個點，差分矩陣會是3x4
-D = np.array([
-    [-1, 1, 0, 0],
-    [0, -1, 1, 0],
-    [0, 0, -1, 1]
-])
+# # 差分矩陣 D，對於4個點，差分矩陣會是3x4
+# D = np.array([
+#     [-1, 1, 0, 0],
+#     [0, -1, 1, 0],
+#     [0, 0, -1, 1]
+# ])
 
-# 差分矩陣乘以座標向量，得到相鄰點距離差
-distance_diff = D @ coordinates
-print("相鄰點距離差:")
-print(distance_diff)
+# # 差分矩陣乘以座標向量，得到相鄰點距離差
+# distance_diff = D @ coordinates
+# print("相鄰點距離差:")
+# print(distance_diff)
+
+
+
+
 
 
