@@ -277,8 +277,3 @@ import matplotlib.image as img
 # plt.ylabel('Y 座標 (高度)')
 # plt.rcParams['font.sans-serif'] = ['Microsoft JhengHei'] #顯示中文
 # plt.show()
-
-
-
-
-
