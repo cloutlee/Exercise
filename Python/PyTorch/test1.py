@@ -19,17 +19,32 @@ from torchvision import transforms
 
 
 # 將多個圖像預處理步驟（Transforms）串聯起來,定義一個組合操作
-my_transform = transforms.Compose([
-    transforms.Resize(256),              # 1. 將圖片短邊縮放至 256
-    transforms.CenterCrop(224),          # 2. 從中心裁剪出 224x224
-    transforms.ToTensor(),               # 3. 轉為 Tensor 並歸一化到 [0, 1]
-    transforms.Normalize(                # 4. 標準化（減均值、除以標準差）
-        mean=[0.485, 0.456, 0.406], 
-        std=[0.229, 0.224, 0.225]
-    )
-])
+# my_transform = transforms.Compose([
+#     transforms.Resize(256),              # 1. 將圖片縮放至 256
+#     transforms.CenterCrop(224),          # 2. 從中心裁剪出 224x224
+#     transforms.ToTensor(),               # 3. 轉為 Tensor 並歸一化到 [0, 1]
+#     transforms.Normalize(                # 4. 標準化（減均值、除以標準差）
+#         mean=[0.485, 0.456, 0.406], 
+#         std=[0.229, 0.224, 0.225]
+#     )
+# ])
 # 使用時只需要調用一次
 # transformed_img = my_transform(img)
+
+
+
+
+# x = torch.randn(2, 3, 4, 4)   # batch=2, RGB圖像 4×4
+
+# #攤平成 (2, 3*4*4) = (2, 48)  → 接全連接層最常見寫法
+# x_flat = x.flatten(start_dim=1)           # 目前最推薦
+# print(x_flat.shape)
+# # 或
+# x_flat = x.view(x.size(0), -1)            # 更快，但要確保 contiguous
+# print(x_flat.shape)
+# # 或
+# x_flat = x.reshape(x.shape[0], -1)        # 安全，但可能稍微慢一點
+# print(x_flat.shape)
 
 
 
