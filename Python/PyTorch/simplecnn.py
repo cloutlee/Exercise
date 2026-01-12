@@ -33,35 +33,42 @@ batch_size = 64
 learning_rate = 0.001
 num_epochs = 2
 
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+print(f'Using device: {torch.cuda.is_available()}')
 
-model = SimpleCNN()
-summary(model, input_size=(64, 1, 28, 28))
-
-
-
-# transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.5,), (0.5,))])
-
-# train_dataset = torchvision.datasets.MNIST(root='data', train=True, transform=transform, download=False)
-# train_loader = torch.utils.data.DataLoader(dataset=train_dataset, batch_size=batch_size, shuffle=True)
 
 # model = SimpleCNN()
+# summary(model, input_size=(64, 1, 28, 28))
 
-# criterion = nn.CrossEntropyLoss()
-# optimizer = optim.Adam(model.parameters(), lr=learning_rate)
 
-# total_step = len(train_loader)
-# for epoch in range(num_epochs):
-#     for i, (images, labels) in enumerate(train_loader):
-#         # Forward pass        
-#         outputs = model(images)
-#         loss = criterion(outputs, labels)
 
-#         # Backward pass and optimize
-#         optimizer.zero_grad()
-#         loss.backward()
-#         optimizer.step()
+transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.5,), (0.5,))])
 
-#         if (i + 1) % 100 == 0:
-#             print(f'Epoch [{epoch+1}/{num_epochs}], Step [{i+1}/{total_step}], Loss: {loss.item():.4f}')
+train_dataset = torchvision.datasets.MNIST(root='data', train=True, transform=transform, download=False)
+train_loader = torch.utils.data.DataLoader(dataset=train_dataset, batch_size=batch_size, shuffle=True, pin_memory=True)
+
+model = SimpleCNN().to(device)
+
+criterion = nn.CrossEntropyLoss()
+optimizer = optim.Adam(model.parameters(), lr=learning_rate)
+
+total_step = len(train_loader)
+for epoch in range(num_epochs):
+    for i, (images, labels) in enumerate(train_loader):
+
+        images = images.to(device, non_blocking=True)
+        labels = labels.to(device, non_blocking=True)
+        
+        # Forward pass        
+        outputs = model(images)
+        loss = criterion(outputs, labels)
+
+        # Backward pass and optimize
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+
+        if (i + 1) % 100 == 0:
+            print(f'Epoch [{epoch+1}/{num_epochs}], Step [{i+1}/{total_step}], Loss: {loss.item():.4f}')
 
 
