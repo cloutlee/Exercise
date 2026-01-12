@@ -54,6 +54,9 @@ optimizer = optim.Adam(model.parameters(), lr=learning_rate)
 
 total_step = len(train_loader)
 for epoch in range(num_epochs):
+
+    model.train()
+
     for i, (images, labels) in enumerate(train_loader):
 
         images = images.to(device, non_blocking=True)
