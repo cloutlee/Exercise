@@ -48,6 +48,21 @@ from torchvision import transforms
 
 
 
+# x = torch.randn(4, 4)
+# print(x.size())
+# print(x.ndim)
+# print(x.shape)
+# print(x)
+
+# y = x.view(16)
+# # y = torch.flatten(x)
+# print(y.size())
+# print(y.ndim)
+# print(y.shape)
+# print(y)
+
+
+
 
 # a = torch.randn(5)
 # print(a)
@@ -63,5 +78,43 @@ from torchvision import transforms
 # loss = bce_loss(predictions, targets)
 # print(f"BCELoss: {loss.item()}")
 
+
+
+
+
+# # 假設輸入是：批次=1張, 通道=3(RGB), 28×28 的圖片
+# x = torch.randn(1, 3, 28, 28)
+# # 定義一個普通的 2D 卷積層
+# conv = nn.Conv2d(
+#     in_channels=3,      # 輸入通道數
+#     out_channels=16,    # 輸出通道數（也就是濾波器/特徵圖數量）
+#     kernel_size=3,      # 卷積核大小 3×3
+#     stride=1,           # 步幅
+#     padding=1           # 周圍補零寬度（保持尺寸常用）
+# )
+
+# out = conv(x)
+# print(out.shape)
+
+
+
+
+
+# def conv_size_calc():
+#     x = torch.randn(1, 3, 224, 224)
+    
+#     conv_layers = [
+#         nn.Conv2d(3, 64, 7, stride=2, padding=3),     # VGG/AlexNet 常見開頭,大幅降維
+#         nn.Conv2d(3, 64, 3, stride=1, padding=1),     # 保持尺寸最常見
+#         nn.Conv2d(3, 64, 3, stride=2, padding=1),     # 尺寸減半
+#         nn.Conv2d(3, 64, 3, stride=1, padding=0),     # 尺寸變小
+#         nn.Conv2d(3, 64, 1, stride=1),                # 1x1 卷積（通道變換）
+#     ]
+    
+#     for i, conv in enumerate(conv_layers, 1):
+#         out = conv(x)
+#         print(f"conv{i}: {out.shape}")
+
+# conv_size_calc()
 
 
