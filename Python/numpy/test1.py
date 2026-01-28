@@ -1,5 +1,11 @@
 import numpy as np
 
+#設定浮點數精度為 3，取消科學記號，完整列印陣列
+# np.set_printoptions(precision=3, suppress=True, threshold=np.inf)
+# a = np.array([1.23456789e-5, 12345.6789, 0.0000001])
+# print(a)
+
+
 tmplist = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 arr = np.array(tmplist)
 
