@@ -68,6 +68,40 @@ arr = np.array(tmplist)
 
 
 
+# arr = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+# print(arr.sum())    #陣列物件的方法
+# print(np.sum(arr))  #NumPy的函式寫法
+
+# print(arr.sum(axis=0))
+# print(np.sum(arr, axis=0))
+
+# print(arr.sum(axis=1))
+# print(np.sum(arr, axis=1))
+
+
+
+# # 找索引
+# print(np.where(arr.sum(axis=1) > 7)[0])
+
+# # 條件替換
+# result = np.where(arr >= 5, 'high', 'low')
+# print(result)
+
+
+
+
+
+# arr = np.array([[[[1], [3], [5]]]])
+# print(arr.shape)
+# print(np.squeeze(arr).shape)
+# print(np.squeeze(arr, axis=0).shape)
+# print(np.squeeze(arr, axis=(0, 1)).shape)
+# print(np.squeeze(arr, axis=3).shape)
+
+
+
+
+
 mask = np.array([
     [0, 0, 1, -1, 0],
     [0, 1, -1, 1, 0],
