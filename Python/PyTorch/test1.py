@@ -16,6 +16,8 @@ from torchvision import transforms
 # print(torch.tensor([1.0, 2.0, 3.0]))
 # points = torch.tensor([[1.0, 2.0], [3.0, 4.0], [5.0, 6.0]])
 # print(points)
+# tonumpy = points.numpy()   #轉為NumPy陣列
+# totorch = torch.from_numpy(tonumpy)  #轉回PyTorch張量
 # print(points.T)   #轉置
 # sot = torch.ones(3, 4, 5)
 # print(sot)
