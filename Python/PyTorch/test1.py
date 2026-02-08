@@ -17,15 +17,15 @@ from torchvision import transforms
 # points = torch.tensor([[1.0, 2.0], [3.0, 4.0], [5.0, 6.0]])
 # print(points)
 # print(points.T)   #轉置
-sot = torch.ones(3, 4, 5)
-print(sot)
-print(sot.shape)
-tt = sot.transpose(0, 2)    #轉置，交換第0和第2維度
-print(tt)
-print(sot.is_contiguous())  #原始張量是否是連續的
-print(tt.is_contiguous())   #轉置後的張量通常不是連續的，因為它改變了內部存儲順序
-cont = tt.contiguous()        #將轉置後的張量轉為連續的
-print(cont.is_contiguous())
+# sot = torch.ones(3, 4, 5)
+# print(sot)
+# print(sot.shape)
+# tt = sot.transpose(0, 2)    #轉置，交換第0和第2維度
+# print(tt)
+# print(sot.is_contiguous())  #原始張量是否是連續的
+# print(tt.is_contiguous())   #轉置後的張量通常不是連續的，因為它改變了內部存儲順序
+# cont = tt.contiguous()        #將轉置後的張量轉為連續的
+# print(cont.is_contiguous())
 
 
 
