@@ -24,6 +24,7 @@ from torchvision import transforms
 # print(sot.shape)
 # tt = sot.transpose(0, 2)    #轉置，交換第0和第2維度
 # print(tt)
+# print(sot.permute(2, 0, 1).shape)   #按照指定的維度順序重新排列
 # print(sot.is_contiguous())  #原始張量是否是連續的
 # print(tt.is_contiguous())   #轉置後的張量通常不是連續的，因為它改變了內部存儲順序
 # cont = tt.contiguous()        #將轉置後的張量轉為連續的
