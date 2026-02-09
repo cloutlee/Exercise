@@ -283,12 +283,14 @@ import matplotlib.image as img
 
 # 圖片正規化
 # 假設圖片是 NumPy 陣列，範圍在 [0, 255] 之間
-image_array = np.random.randint(0, 256, (100, 100, 3), dtype=np.uint8)
-# 將圖片正規化到 [0, 1] 範圍
-normalized_image = image_array / 255.0
-# 或者使用更標準的方式：將圖片轉換為浮點數並正規化
-normalized_image = image_array.astype(np.float32) / 255.0
-# 或計算輸入資料的平均值與標準差，然後使用這些值來正規化圖片
-mean = np.mean(image_array, axis=(0, 1))  # 計算每個通道的平均值
-std = np.std(image_array, axis=(0, 1))    # 計算每個通道的標準差
-normalized_image = (image_array - mean) / std
+# image_array = np.random.randint(0, 256, (100, 100, 3), dtype=np.uint8)
+# # 將圖片正規化到 [0, 1] 範圍
+# normalized_image = image_array / 255.0
+# # 或者使用更標準的方式：將圖片轉換為浮點數並正規化
+# normalized_image = image_array.astype(np.float32) / 255.0
+# # 或計算輸入資料的平均值與標準差，然後使用這些值來正規化圖片
+# mean = np.mean(image_array, axis=(0, 1))  # 計算每個通道的平均值
+# std = np.std(image_array, axis=(0, 1))    # 計算每個通道的標準差
+# normalized_image = (image_array - mean) / std
+
+
