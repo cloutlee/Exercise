@@ -97,7 +97,7 @@ from torchvision import transforms
 
 
 
-# # 假設輸入是：批次=1張, 通道=3(RGB), 28×28 的圖片
+# # 假設輸入是：批次=1張, 通道=3(RGB), 28×28(高 * 寬) 的圖片
 # x = torch.randn(1, 3, 28, 28)
 # # 定義一個普通的 2D 卷積層
 # conv = nn.Conv2d(
