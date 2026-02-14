@@ -52,6 +52,11 @@ model = SimpleCNN().to(device)
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=learning_rate)
 
+
+for name, param in model.named_parameters():
+    print(name, param.shape)
+
+
 total_step = len(train_loader)
 for epoch in range(num_epochs):
 
