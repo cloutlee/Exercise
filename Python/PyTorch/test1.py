@@ -32,6 +32,24 @@ from torchvision import transforms
 
 
 
+# print(torch.cuda.is_available())
+# print(torch.cuda.device_count())
+# print(torch.cuda.get_device_name(0))
+# device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+# data = torch.ones(3, 4)
+# data = data.to(device)
+# 或
+# data = torch.ones(3, 4).cuda()
+# 或
+# x = torch.rand(3, 4, device="cuda")
+# model = MyModel().to(device)
+
+# data_cpu = data.to("cpu")
+# 或
+# data_cpu = data.cpu()
+
+
+
 
 
 # 將多個圖像預處理步驟（Transforms）串聯起來,定義一個組合操作
