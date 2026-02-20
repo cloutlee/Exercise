@@ -27,6 +27,7 @@ arr = np.array(tmplist)
 # print(arr[:-3])     #[1, 2, 3, 4, 5, 6, 7]
 # print(arr[(arr >= 3) & (arr < 9)])    #[3 4 5 6 7 8]
 # print(arr[arr % 2 == 0])              #[ 2  4  6  8 10]
+print(arr > 5)        #[False False False False False  True  True  True  True  True]
 
 # print(np.zeros(3))          #[0. 0. 0.]
 # print(np.zeros((2,3)))      #[[0. 0. 0.]
