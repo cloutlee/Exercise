@@ -15,7 +15,9 @@ from torchvision import transforms
 # print(torch.empty(3, 3))
 # print(torch.tensor([1.0, 2.0, 3.0]))
 # points = torch.tensor([[1.0, 2.0], [3.0, 4.0], [5.0, 6.0]])
-# print(points)
+# print(points.shape)
+# print(points.unsqueeze(1).shape)   #在第1維度插入一個新的維度，將形狀從 (3, 2) 變為 (3, 1, 2)
+# print(points.squeeze(1))     #刪除第1維度（如果該維度大小為1），將形狀從 (3, 1, 2) 變回 (3, 2)
 # tonumpy = points.numpy()   #轉為NumPy陣列
 # totorch = torch.from_numpy(tonumpy)  #轉回PyTorch張量
 # print(points.T)   #轉置
